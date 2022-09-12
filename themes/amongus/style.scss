@@ -1,0 +1,24 @@
+// NOTICE: THIS HAS TO BE MANUALLY COMPILED TO CSS
+// USE: https://www.cssportal.com/scss-to-css/ TO COMPILE
+
+.star {
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    animation: star linear infinite; 
+    @for $i from 1 through 70 {
+        &:nth-child(#{$i}) {
+        $size: random(7) + 3px;
+        width: $size;
+        height: $size;
+        animation-duration: random(30) + 15s;
+        animation-delay: random(40) - 40s;
+        top: random(101) - 1vh;
+        }
+    }
+}
+
+@keyframes star {
+    from { transform: translate3d(-100%, 0, 1px); }
+    to { transform: translate3d(100vw, 0, 1px); }
+}
