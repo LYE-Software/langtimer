@@ -26,7 +26,12 @@ function timer(ck){
             }, 1000)
         } else {
             console.log("Clearing timer: " + timer)
-            document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
+            clearInterval(timer1)
+            newtime = secondsToMinutesFormatted(sec)
+            document.getElementById('num4').innerHTML=newtime[0];
+            document.getElementById('num3').innerHTML=newtime[1];
+            document.getElementById('num1').innerHTML=newtime[3];
+            document.getElementById('num0').innerHTML=newtime[4];            
             document.getElementById("startButton").classList.remove("startButtonClicked");
             this.timer("Start");
         }
