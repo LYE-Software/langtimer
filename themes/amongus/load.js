@@ -5,8 +5,8 @@ class AmongUsTheme extends Theme {
         var container = document.createElement("div");
         container.id = "amongusstarscontainer";
         container.style.position = "absolute";
-        container.style.width = "100%";
-        container.style.height = "100vh";
+        container.style.width = "100vw";
+        container.style.height = "100%";
         container.style.top = "0";
         container.style.left = "0";
         container.style.zIndex = "-1";
@@ -17,16 +17,23 @@ class AmongUsTheme extends Theme {
         div.id = "amongusstars";
         div.style.position = "absolute";
         div.style.width = "100vw";
-        div.style.height = "100vh";
+        div.style.height = "100%";
         div.style.backgroundColor = "black";
         container.appendChild(div);
 
-        
         // In the div, append 70 divs with class star
         for (var i = 0; i < 70; i++) {
             var star = document.createElement("div");
             star.classList.add("star");
             div.appendChild(star);
+        }
+
+        // Using onScroll, make sure the amongusstarcontainer moves with the page
+        window.onscroll = function() {
+            var scroll = window.scrollY;
+            if (scroll < document.body.clientHeight) {
+                container.style.top = scroll + "px";
+            }
         }
 
         // Add the stylesheet
@@ -54,5 +61,6 @@ class AmongUsTheme extends Theme {
         document.getElementById("amongusstarscontainer").remove();
         document.getElementById("amongusstylesheet").remove();
         document.getElementById("amonguscrewmateonleftpanel").remove();
+        window.onscroll = null;
     }
 }

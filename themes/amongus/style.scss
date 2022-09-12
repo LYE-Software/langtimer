@@ -22,3 +22,18 @@
     from { transform: translate3d(-100%, 0, 1px); }
     to { transform: translate3d(100vw, 0, 1px); }
 }
+
+:root {
+    --fullWidthInPanel: calc(390px + 9vw);
+
+    --main-color-dark: #c9c9c9;
+    --main-color: #e3e3e3;
+    --main-color-light: #f2f2f2;
+    --accent-color: #C51111;
+
+    --font: 'Poppins', sans-serif;
+}
+
+div {
+    border-radius: 5px !important;
+}
