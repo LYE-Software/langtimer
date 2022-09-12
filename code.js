@@ -92,6 +92,9 @@ function secondsToMinutesFormatted(seconds) {
     if (seconds < 10) {
         seconds = "0" + seconds;
     }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
     return minutes + ":" + seconds;
 }
 

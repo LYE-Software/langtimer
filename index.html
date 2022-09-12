@@ -45,8 +45,8 @@
         }
 
         .largepanel {
-            width: calc(var(--fullWidthInPanel) + 100px + 1vw);
-            height: 600px;
+            width: calc(var(--fullWidthInPanel) + 25px + 1vw);
+            height: 525px;
             margin: 20px;
             background-color: var(--main-color-light);
             border-radius: 25px;
@@ -151,6 +151,23 @@
         .nopointerevents {
             pointer-events: none;
         }
+
+        .taskContainer {
+            height: 85px;
+            width: calc(var(--fullWidthInPanel));
+        }
+
+        .task {
+            width: calc(var(--fullWidthInPanel) - 25px);
+            height: 75px;
+            border-style: dashed;
+            border-radius: 25px;
+            background-color: var(--main-color-light)
+        }
+
+        .char {
+            width: 60px;
+        }
     </style>
 </head>
 <body>
@@ -160,7 +177,11 @@
     <div class="wrap horizontalFlex full">
         <div class="verticalFlex largepanel">
             <div class="horizontalFlex" id="timerContainer">
-                25:00
+                <div id="num4" class="horizontalFlex char">2</div>
+                <div id="num3" class="horizontalFlex char">5</div>
+                <div id="num2" class="horizontalFlex" style="width: 30px;">:</div>
+                <div id="num1" class="horizontalFlex char">0</div>
+                <div id="num0" class="horizontalFlex char">0</div>
             </div>
             <div class="horizontalFlex">
                 <div id="study" class="selected horizontalFlex panelButton" onclick="changeMode('study')">Study</div>
@@ -181,8 +202,14 @@
         <div class="verticalFlex largepanel">
             <div class="horizontalFlex" id="tasksHeader">Your Tasks</div>
             <div class="spacer"></div>
-            <div class="spacer"></div>
-            <div id="tasksContainer"></div>
+            <div id="tasksContainer">
+                <div class="spacer"></div>
+                <div class="horizontalFlex taskContainer">
+                    <div class="task horizontalFlex">
+                        Add New
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
