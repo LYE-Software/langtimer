@@ -7,9 +7,9 @@ function timer(ck){
         if (ck =="Start") {
             isRunning = true;
             timer1 = setInterval(function () {
+                sec--;
                 newtime = secondsToMinutesFormatted(sec)
                 setClockTime(newtime)
-                sec--;
                 if (sec < 0) {
                     clearInterval(timer);
                     document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
@@ -20,10 +20,7 @@ function timer(ck){
         } else {
             clearInterval(timer1)
             newtime = secondsToMinutesFormatted(sec)
-            document.getElementById('num4').innerHTML=newtime[0];
-            document.getElementById('num3').innerHTML=newtime[1];
-            document.getElementById('num1').innerHTML=newtime[3];
-            document.getElementById('num0').innerHTML=newtime[4];            
+            setClockTime(newtime)          
             document.getElementById("startButton").classList.remove("startButtonClicked");
             this.timer("Start");
         }
@@ -36,13 +33,12 @@ function findMode() {
     disableButtons()
     document.getElementById("startButton").innerHTML = "Pause"
     document.getElementById("startButton").onclick = function(){makePause()};
-    document.getElementById("startButton").classList.add("startButtonClicked");
     if (mode == "study") {
-        sec = secondsMinutesToSeconds(25, 0);
+        sec = secondsMinutesToSeconds(25, 0) - 1;
     } else if (mode == "short") {
-        sec = secondsMinutesToSeconds(5, 0);
+        sec = secondsMinutesToSeconds(5, 0) - 1;
     } else if (mode == "long") {
-        sec = secondsMinutesToSeconds(15, 0)
+        sec = secondsMinutesToSeconds(15, 0) - 1;
     }
     timer();
     document.getElementById("startButton").classList.add("startButtonClicked");
