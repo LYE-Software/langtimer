@@ -8,7 +8,13 @@ function timer(ck){
             console.log("Timer created")
             isRunning = true;
             timer1 = setInterval(function () {
-                document.getElementById('timerContainer').innerHTML=secondsToMinutesFormatted(sec);
+                newtime = secondsToMinutesFormatted(sec)
+                console.log(document.getElementById("num3"))
+                console.log(document)
+                document.getElementById('num4').innerHTML=newtime[0];
+                document.getElementById('num3').innerHTML=newtime[1];
+                document.getElementById('num1').innerHTML=newtime[3];
+                document.getElementById('num0').innerHTML=newtime[4];
                 sec--;
                 if (sec < 0) {
                     clearInterval(timer);
