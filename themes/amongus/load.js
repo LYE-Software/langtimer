@@ -5,11 +5,12 @@ class AmongUsTheme extends Theme {
         var container = document.createElement("div");
         container.id = "amongusstarscontainer";
         container.style.position = "absolute";
-        container.style.width = "100vw";
+        container.style.width = "100%";
         container.style.height = "100vh";
         container.style.top = "0";
         container.style.left = "0";
         container.style.zIndex = "-1";
+        container.style.overflow = "hidden";
         document.body.appendChild(container);
         
         var div = document.createElement("div");
@@ -32,10 +33,26 @@ class AmongUsTheme extends Theme {
         var link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = "themes/amongus/style.css";
+        link.id = "amongusstylesheet";
         document.head.appendChild(link);
+
+        // Using the HTML above, create the object and append it to leftpanel
+        var div = document.createElement("div");
+        div.id = "amonguscrewmateonleftpanel";
+        div.style.position = "absolute";
+        div.style.transform = "translateY(-240%)";
+        document.getElementById("leftpanel").appendChild(div);
+
+        var img = document.createElement("img");
+        img.src = "themes/amongus/assets/hzmy05izlfo51.png.webp";
+        img.style.width = "125px";
+        img.style.height = "125px";
+        div.appendChild(img);
     }
     
     unloadTheme() {
         document.getElementById("amongusstarscontainer").remove();
+        document.getElementById("amongusstylesheet").remove();
+        document.getElementById("amonguscrewmateonleftpanel").remove();
     }
 }

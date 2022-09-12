@@ -10,3 +10,5 @@ function setTheme(themeName) {
     currentTheme = themes[themeName];
     currentTheme.loadTheme();
 }
+
+setTheme("amongus")
