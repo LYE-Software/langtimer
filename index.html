@@ -3,13 +3,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lang Timer</title>
+    <link rel="icon" href="Lang inverse-1.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
         :root {
             --fullWidthInPanel: calc(390px + 9vw);
 
+            --main-color-dark: #00111B;
             --main-color: #001945;
             --main-color-light: #2f3d73;
             --accent-color: wheat;
@@ -53,20 +55,13 @@
         .panelButton {
             width: calc(var(--fullWidthInPanel) / 3);
             height: 50px;
-        }
-
-        .panelButton:nth-child(1) {
             border-bottom-left-radius: 25px;
-        }
-
-        .panelButton:nth-child(3) {
             border-bottom-right-radius: 25px;
         }
 
         .selected {
             background-color: var(--main-color);
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
+            transition: background-color 0.5s;
         }
 
         #startButton {
@@ -75,6 +70,21 @@
 
             border-radius: 25px;
             background-color: var(--main-color);
+
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .startButtonClicked {
+            transform: translateY(10%);
+        }
+
+        .startButtonBottom {
+            width: 350px;
+            height: 100px;
+
+            border-radius: 25px;
+            background-color: var(--main-color-dark);
 
             font-size: 30px;
             font-weight: 600;
@@ -90,6 +100,14 @@
 
             font-size: 100px;
             font-weight: 600;
+        }
+
+        .roundBottomLeftCorner {
+            border-bottom-left-radius: 25px;
+        }
+
+        .roundBottomRightCorner {
+            border-bottom-right-radius: 25px;
         }
         
         .spacer {
@@ -117,31 +135,69 @@
             background-color: var(--main-color);
             border-radius: 25px;
         }
-        
+
+        .logo {
+            margin: 20px;
+            position: absolute;
+            height:12vh;
+            width:auto;
+        }
+
+        .panelButton:hover {
+            background-color: var(--main-color-dark) !important;
+            transition: background-color 0.1s;
+        }
+
+        .nopointerevents {
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <div class="logo">
+        <img src="Lang inverse-1.png" class="logo">
+    </div>
     <div class="wrap horizontalFlex full">
         <div class="verticalFlex largepanel">
             <div class="horizontalFlex" id="timerContainer">
                 25:00
             </div>
             <div class="horizontalFlex">
-                <div class="selected horizontalFlex panelButton">Study</div>
-                <div class="horizontalFlex panelButton">Short Break</div>
-                <div class="horizontalFlex panelButton">Long Break</div>
+                <div id="study" class="selected horizontalFlex panelButton" onclick="changeMode('study')">Study</div>
+                <div id="short" class="horizontalFlex panelButton" onclick="changeMode('short')">Short Break</div>
+                <div id="long" class="horizontalFlex panelButton" onclick="changeMode('long')">Long Break</div>
             </div>
             <div class="spacer"></div>
-            <div class="horizontalFlex" id="startButton">
-                Start
+            <div style="height: 100px">
+                <div style="position: absolute; transform: translateX(-50%) translateY(10%)">
+                    <div class="startButtonBottom"></div>
+                </div>
+                <div style="position: absolute; transform: translateX(-50%)">
+                    <div class="horizontalFlex" id="startButton" onclick="findMode()">Start</div>
+                </div>
             </div>
+
         </div>
         <div class="verticalFlex largepanel">
-            <div class="horizontalFlex" id="tasksHeader">ankleBowl's Tasks</div>
+            <div class="horizontalFlex" id="tasksHeader">Your Tasks</div>
             <div class="spacer"></div>
             <div class="spacer"></div>
             <div id="tasksContainer"></div>
         </div>
     </div>
 </body>
+<script src="code.js"></script>
+<script>
+    function disableButtons() {
+        document.getElementById("study").classList.add("nopointerevents");
+        document.getElementById("short").classList.add("nopointerevents");
+        document.getElementById("long").classList.add("nopointerevents");
+    }
+
+    function enableButtons() {
+        document.getElementById("study").classList.remove("nopointerevents");
+        document.getElementById("short").classList.remove("nopointerevents");
+        document.getElementById("long").classList.remove("nopointerevents");
+    }
+</script>
 </html>
