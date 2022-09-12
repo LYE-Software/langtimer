@@ -1,0 +1,9 @@
+class Theme {
+    loadTheme() {
+
+    }
+
+    unloadTheme() {
+    
+    }
+}
