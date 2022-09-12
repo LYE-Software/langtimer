@@ -5,27 +5,19 @@ var isRunning = false
 function timer(ck){
     try {
         if (ck =="Start") {
-            console.log("Timer created")
             isRunning = true;
             timer1 = setInterval(function () {
                 newtime = secondsToMinutesFormatted(sec)
-                console.log(document.getElementById("num3"))
-                console.log(document)
-                document.getElementById('num4').innerHTML=newtime[0];
-                document.getElementById('num3').innerHTML=newtime[1];
-                document.getElementById('num1').innerHTML=newtime[3];
-                document.getElementById('num0').innerHTML=newtime[4];
+                setClockTime(newtime)
                 sec--;
                 if (sec < 0) {
                     clearInterval(timer);
                     document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
-                    sec = time
                     enableButtons()
                     isRunning = false;
                 }
             }, 1000)
         } else {
-            console.log("Clearing timer: " + timer)
             clearInterval(timer1)
             newtime = secondsToMinutesFormatted(sec)
             document.getElementById('num4').innerHTML=newtime[0];
@@ -45,11 +37,8 @@ function findMode() {
     document.getElementById("startButton").innerHTML = "Pause"
     document.getElementById("startButton").onclick = function(){makePause()};
     document.getElementById("startButton").classList.add("startButtonClicked");
-    console.log("Mode: "+mode);
     if (mode == "study") {
         sec = secondsMinutesToSeconds(25, 0);
-        console.log("inside study")
-        
     } else if (mode == "short") {
         sec = secondsMinutesToSeconds(5, 0);
     } else if (mode == "long") {
@@ -85,18 +74,22 @@ function changeMode(newMode){
     document.getElementById("long").classList.remove("selected");
     if (newMode == "study"){
         document.getElementById("study").classList.add("selected")
-        document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(secondsMinutesToSeconds(25, 0));
+        setClockTime(secondsToMinutesFormatted(secondsMinutesToSeconds(25, 0)));
     }
     if (newMode == "short"){
         document.getElementById("short").classList.add("selected")
-        document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(secondsMinutesToSeconds(5, 0));
+        setClockTime(secondsToMinutesFormatted(secondsMinutesToSeconds(5, 0)));
     }
     if (newMode == "long"){
         document.getElementById("long").classList.add("selected")
-        document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(secondsMinutesToSeconds(15, 0));
+        setClockTime(secondsToMinutesFormatted(secondsMinutesToSeconds(15, 0)));
     }
 }
 
+
+// Utility functions
+
+// Converts seconds to minutes and seconds in a formatted string
 function secondsToMinutesFormatted(seconds) {
     var minutes = Math.floor(seconds / 60);
     var seconds = seconds % 60;
@@ -109,6 +102,15 @@ function secondsToMinutesFormatted(seconds) {
     return minutes + ":" + seconds;
 }
 
+
+// Converts minutes and seconds to seconds
 function secondsMinutesToSeconds(minutes, seconds) {
     return minutes * 60 + seconds;
+}
+
+function setClockTime(formattedTime) {
+    document.getElementById('num4').innerHTML=formattedTime[0];
+    document.getElementById('num3').innerHTML=formattedTime[1];
+    document.getElementById('num1').innerHTML=formattedTime[3];
+    document.getElementById('num0').innerHTML=formattedTime[4];
 }
