@@ -11,4 +11,4 @@ function setTheme(themeName) {
     currentTheme.loadTheme();
 }
 
-setTheme("amongus")
+// setTheme("amongus")

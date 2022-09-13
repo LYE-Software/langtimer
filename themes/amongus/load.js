@@ -29,12 +29,12 @@ class AmongUsTheme extends Theme {
         }
 
         // Using onScroll, make sure the amongusstarcontainer moves with the page
-        window.onscroll = function() {
-            var scroll = window.scrollY;
-            if (scroll < document.body.clientHeight) {
-                container.style.top = scroll + "px";
-            }
-        }
+        // window.onscroll = function() {
+        //     var scroll = window.scrollY;
+        //     if (scroll < document.body.clientHeight) {
+        //         container.style.top = scroll + "px";
+        //     }
+        // }
 
         // Add the stylesheet
         var link = document.createElement("link");

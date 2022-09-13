@@ -120,16 +120,6 @@
             flex-wrap: wrap;
         }
 
-        #tasksHeader {
-            height: 100px;
-            width: var(--fullWidthInPanel);
-            background-color: var(--main-color);
-            border-radius: 25px;
-
-            font-size: 30px;
-            font-weight: 600;
-        }
-
         #tasksContainer {
             height: 350px;
             width: var(--fullWidthInPanel);
@@ -139,9 +129,12 @@
 
         .logo {
             margin: 20px;
-            position: absolute;
             height:7vh;
             width:auto;
+        }
+
+        .absolute {
+            position: absolute;
         }
 
         .panelButton:hover {
@@ -169,45 +162,116 @@
         .char {
             width: 60px;
         }
+
+        .fullWidth {
+            width: 100vw;
+        }
+
+        .fullHeight {
+            height: 100vh;
+        }
+
+        .settingsPanelContainer {
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.75)
+        }
+
+        .internalSettingsPanel {
+            width: var(--fullWidthInPanel);
+            background-color: var(--main-color);
+            border-radius: 25px;
+        }
+        
+        .header {
+            height: 100px;
+            width: var(--fullWidthInPanel);
+            background-color: var(--main-color);
+            border-radius: 25px;
+
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .smallHeader {
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            height: 50px;
+        }
+
+        .rounded {
+            border-radius: 25px;
+        }
+
+        .button {
+            padding: 15px;
+            transition: background-color 0.5s;
+        }
+
+        .button:hover {
+            background-color: var(--main-color-dark) !important;
+            transition: background-color 0.1s;
+        }
+        
     </style>
 </head>
 <body>
-    <div class="logo">
-        <img src="assets/logo.png" class="logo">
+    <div id="settings" class="absolute horizontalFlex full settingsPanelContainer" style="display: none;">
+        <div class="verticalFlex largepanel" style="height: 90vh; justify-content: flex-start;">
+            <div class="spacer"></div>
+            <div style="width: 90%; justify-content: flex-start;" class="horizontalFlex">
+                <img onclick="hideSettings()" id="closeButton" style="height: 60px;" src="assets/close.png"></img>
+            </div>
+            <div class="spacer"></div>
+            <div class="horizontalFlex header">Settings</div>
+            <div class="spacer"></div>
+            <div class="internalSettingsPanel">
+                <div class="horizontalFlex header smallHeader">Theme</div>
+                <div class="horizontalFlex">
+                    <div class="horizontalFlex button" onclick="setTheme('default')">Default</div>
+                    <div class="horizontalFlex button" onclick="setTheme('amongus')">Among Us</div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+    </div>
+    <div class="absolute horizontalFlex fullWidth" style="justify-content: space-between;">
+        <img id="companyLogo" src="assets/logo.png" class="logo">
+        <img onclick="showSettings()" id="settingsIcon" src="assets/settings-icon.png" class="logo" style="margin-left: 0px;">
     </div>
     <div class="wrap horizontalFlex full">
-        <div id="leftpanel" class="verticalFlex largepanel">
-            <div class="horizontalFlex" id="timerContainer">
-                <div id="num4" class="horizontalFlex char">2</div>
-                <div id="num3" class="horizontalFlex char">5</div>
-                <div id="num2" class="horizontalFlex" style="width: 30px;">:</div>
-                <div id="num1" class="horizontalFlex char">0</div>
-                <div id="num0" class="horizontalFlex char">0</div>
-            </div>
-            <div class="horizontalFlex">
-                <div id="study" class="selected horizontalFlex panelButton" onclick="changeMode('study')">Study</div>
-                <div id="short" class="horizontalFlex panelButton" onclick="changeMode('short')">Short Break</div>
-                <div id="long" class="horizontalFlex panelButton" onclick="changeMode('long')">Long Break</div>
-            </div>
-            <div class="spacer"></div>
-            <div style="height: 100px">
-                <div style="position: absolute; transform: translateX(-50%) translateY(10%)">
-                    <div class="startButtonBottom"></div>
+        <div class="fullHeight horizontalFlex">
+            <div id="leftpanel" class="verticalFlex largepanel">
+                <div class="horizontalFlex" id="timerContainer">
+                    <div id="num4" class="horizontalFlex char">2</div>
+                    <div id="num3" class="horizontalFlex char">5</div>
+                    <div id="num2" class="horizontalFlex" style="width: 30px;">:</div>
+                    <div id="num1" class="horizontalFlex char">0</div>
+                    <div id="num0" class="horizontalFlex char">0</div>
                 </div>
-                <div style="position: absolute; transform: translateX(-50%)">
-                    <div class="horizontalFlex" id="startButton" onclick="findMode()">Start</div>
+                <div class="horizontalFlex">
+                    <div id="study" class="selected horizontalFlex panelButton" onclick="changeMode('study')">Study</div>
+                    <div id="short" class="horizontalFlex panelButton" onclick="changeMode('short')">Short Break</div>
+                    <div id="long" class="horizontalFlex panelButton" onclick="changeMode('long')">Long Break</div>
                 </div>
-            </div>
-
-        </div>
-        <div id="rightpanel" class="verticalFlex largepanel">
-            <div class="horizontalFlex" id="tasksHeader">Your Tasks</div>
-            <div class="spacer"></div>
-            <div id="tasksContainer">
                 <div class="spacer"></div>
-                <div class="horizontalFlex taskContainer">
-                    <div class="task horizontalFlex">
-                        Add New
+                <div style="height: 100px">
+                    <div style="position: absolute; transform: translateX(-50%) translateY(10%)">
+                        <div class="startButtonBottom"></div>
+                    </div>
+                    <div style="position: absolute; transform: translateX(-50%)">
+                        <div class="horizontalFlex" id="startButton" onclick="findMode()">Start</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeight horizontalFlex">
+            <div id="rightpanel" class="verticalFlex largepanel">
+                <div class="horizontalFlex header" id="tasksHeader">Your Tasks</div>
+                <div class="spacer"></div>
+                <div id="tasksContainer">
+                    <div class="spacer"></div>
+                    <div class="horizontalFlex taskContainer">
+                        <div class="task horizontalFlex">Add New</div>
                     </div>
                 </div>
             </div>
@@ -226,6 +290,14 @@
         document.getElementById("study").classList.remove("nopointerevents");
         document.getElementById("short").classList.remove("nopointerevents");
         document.getElementById("long").classList.remove("nopointerevents");
+    }
+
+    function hideSettings() {
+        document.getElementById("settings").style.display = "none";
+    }
+
+    function showSettings() {
+        document.getElementById("settings").style.display = "flex";
     }
 </script>
 <script src="themes/theme.js"></script>
