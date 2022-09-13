@@ -277,6 +277,18 @@
             background-color: var(--main-color-dark) !important;
             transition: background-color 0.1s;
         }
+
+        .newTask{
+            width: calc(var(--fullWidthInPanel) - 25px);
+            height: 75px;
+            border-style: dashed;
+            border-radius: 25px;
+            background-color: var(--main-color-light);
+            color:wheat;
+            font-size:8vh;
+            text-align:center;
+            align-elements:center;
+        }
         
     </style>
 </head>
@@ -345,7 +357,10 @@
                 <div id="tasksContainer">
                     <div class="spacer"></div>
                     <div class="horizontalFlex taskContainer">
-                        <div class="task horizontalFlex">Add New</div>
+                        <div class="verticalFlex" id="minicontainer">
+                            <input type="text" class="newTask" placeholder="New Task">
+                        </div>
+                        
                     </div>
                 </div>
             </div>

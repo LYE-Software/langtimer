@@ -114,3 +114,7 @@ function setClockTime(formattedTime) {
     document.getElementById('num1').innerHTML=formattedTime[3];
     document.getElementById('num0').innerHTML=formattedTime[4];
 }
+
+function createTask(){
+    
+}
