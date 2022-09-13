@@ -1,9 +1,9 @@
 class Theme {
-    loadTheme() {
+    loadTheme(isLight) {
 
     }
 
-    unloadTheme() {
+    unloadTheme(isLight) {
     
     }
 }

@@ -1,14 +1,20 @@
-var currentTheme = new Theme();
+var currentTheme = new LangTheme();
 
 var themes = {
     "amongus": new AmongUsTheme(),
-    "default": new Theme()
+    "default": new LangTheme()
 };
 
+var isLight = false
+
 function setTheme(themeName) {
-    currentTheme.unloadTheme();
+    currentTheme.unloadTheme(isLight);
     currentTheme = themes[themeName];
-    currentTheme.loadTheme();
+    currentTheme.loadTheme(isLight);
 }
 
-// setTheme("amongus")
+function toggleLight() {
+    currentTheme.unloadTheme(isLight);
+    isLight = !isLight;
+    currentTheme.loadTheme(isLight);
+}
