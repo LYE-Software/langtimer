@@ -10,11 +10,15 @@ function timer(ck){
                 sec--;
                 newtime = secondsToMinutesFormatted(sec)
                 setClockTime(newtime)
-                if (sec < 0) {
-                    clearInterval(timer);
+                if (sec <= 0) {
+                    clearInterval(timer1);
+                    clearInterval(timer)
                     document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
                     enableButtons()
                     isRunning = false;
+
+                    document.getElementById("endAudio").play();
+                    console.log("played sound")
                 }
             }, 1000)
         } else {
