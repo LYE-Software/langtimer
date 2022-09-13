@@ -66,4 +66,13 @@ class AmongUsTheme extends Theme {
         document.getElementById("tasksHeader").innerHTML = "Your Assignments";
         window.onscroll = null;
     }
+
+    secondTick() {
+        console.log('sus')
+        document.getElementById("amonguscrewmateonleftpanel").classList.add("amongUsBounce");
+        // remove after 0.5 seconds
+        setTimeout(function() {
+            document.getElementById("amonguscrewmateonleftpanel").classList.remove("amongUsBounce");
+        })
+    }
 }

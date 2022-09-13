@@ -10,6 +10,7 @@ function timer(ck){
                 sec--;
                 newtime = secondsToMinutesFormatted(sec)
                 setClockTime(newtime)
+                secondTick()
                 if (sec <= 0) {
                     clearInterval(timer1);
                     clearInterval(timer)

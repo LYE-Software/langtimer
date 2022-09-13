@@ -19,4 +19,8 @@ class LangTheme extends Theme {
             document.getElementById("companyLogo").src = "assets/logo.png";
         }
     }
+
+    secondTick() {
+        
+    }
 }

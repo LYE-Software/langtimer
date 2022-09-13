@@ -18,3 +18,7 @@ function toggleLight() {
     isLight = !isLight;
     currentTheme.loadTheme(isLight);
 }
+
+function secondTick() {
+    currentTheme.secondTick()
+}

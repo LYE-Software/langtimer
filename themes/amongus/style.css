@@ -576,16 +576,28 @@
 }
 
 :root {
-  --fullWidthInPanel: calc(390px + 9vw);
-
   --main-color-dark: #c9c9c9;
   --main-color: #e3e3e3;
   --main-color-light: #f2f2f2;
   --accent-color: #C51111;
-
-  --font: 'Poppins', sans-serif;
 }
 
 div {
   border-radius: 5px !important;
+}
+
+.amongUsBounce {
+	animation: amongUsBounce 0.5s;
+}
+
+@keyframes amongUsBounce {
+  0% {
+	transform: translateY(-240%);
+  }
+  50% {
+	transform: translateY(-270%);
+  }
+  100% {
+	transform: translateY(-240%);
+  }
 }

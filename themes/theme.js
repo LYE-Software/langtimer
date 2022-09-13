@@ -6,4 +6,8 @@ class Theme {
     unloadTheme(isLight) {
     
     }
+
+    secondTick() {
+        
+    }
 }
