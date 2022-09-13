@@ -6,6 +6,72 @@
     <title>Lang Timer</title>
     <link rel="icon" href="assets/logo.png">
     <style>
+        /* Thanks w3schools */
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--main-color-light);
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--main-color);
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+
+
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
         :root {
@@ -225,13 +291,20 @@
             <div class="horizontalFlex header">Settings</div>
             <div class="spacer"></div>
             <div class="internalSettingsPanel">
-                <div class="horizontalFlex header smallHeader">Theme</div>
+                <div class="horizontalFlex smallHeader">Theme</div>
                 <div class="horizontalFlex">
                     <div class="horizontalFlex button" onclick="setTheme('default')">Default</div>
                     <div class="horizontalFlex button" onclick="setTheme('amongus')">Among Us</div>
                 </div>
             </div>
             <div class="spacer"></div>
+            <div class="internalSettingsPanel horizontalFlex" style="justify-content: space-between;">
+                <div class="horizontalFlex smallHeader" style="margin-left: 20px;">Light Mode</div>
+                <label class="switch" style="margin-right: 20px;">
+                    <input type="checkbox" onclick="toggleLight()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div>
     </div>
 
@@ -278,6 +351,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <audio id="endAudio" src="assets/sounds/alarm-kitchen.mp3"></audio>
 </body>
