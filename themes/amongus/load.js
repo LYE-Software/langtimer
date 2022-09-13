@@ -55,6 +55,9 @@ class AmongUsTheme extends Theme {
         img.style.width = "125px";
         img.style.height = "125px";
         div.appendChild(img);
+
+        //
+        document.getElementById("companyLogo").src = "themes/amongus/assets/lang-amongus.png";
     }
     
     unloadTheme() {
