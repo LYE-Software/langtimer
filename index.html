@@ -287,7 +287,12 @@
             color: var(--accent-color);
             /* font-size:8vh; */
             text-align:center;
-            align-elements:center;
+            align-items:center;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -380,15 +385,15 @@
 <script src="code.js"></script>
 <script>
     function disableButtons() {
-        document.getElementById("study").classList.add("nopointerevents");
-        document.getElementById("short").classList.add("nopointerevents");
-        document.getElementById("long").classList.add("nopointerevents");
+        document.getElementById("study").classList.add("disabled");
+        document.getElementById("short").classList.add("disabled");
+        document.getElementById("long").classList.add("disabled");
     }
 
     function enableButtons() {
-        document.getElementById("study").classList.remove("nopointerevents");
-        document.getElementById("short").classList.remove("nopointerevents");
-        document.getElementById("long").classList.remove("nopointerevents");
+        document.getElementById("study").classList.remove("disabled");
+        document.getElementById("short").classList.remove("disabled");
+        document.getElementById("long").classList.remove("disabled");
     }
 
     function hideSettings() {

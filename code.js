@@ -18,7 +18,6 @@ function timer(ck){
                     document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
                     enableButtons()
                     isRunning = false;
-
                     document.getElementById("endAudio").play();
                     console.log("played sound")
                 }
