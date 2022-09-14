@@ -10,6 +10,7 @@ function timer(ck){
                 sec--;
                 newtime = secondsToMinutesFormatted(sec)
                 setClockTime(newtime)
+                document.title=newtime+" - Lang Timer";
                 secondTick()
                 if (sec <= 0) {
                     clearInterval(timer1);
