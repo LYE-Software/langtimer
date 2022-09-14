@@ -586,7 +586,7 @@ div {
   border-radius: 5px !important;
 }
 
-.amongUsBounce {
+/* .amongUsBounce {
 	animation: amongUsBounce 0.5s;
 }
 
@@ -600,4 +600,4 @@ div {
   100% {
 	transform: translateY(-240%);
   }
-}
+} */

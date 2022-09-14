@@ -68,11 +68,11 @@ class AmongUsTheme extends Theme {
     }
 
     secondTick() {
-        console.log('sus')
-        document.getElementById("amonguscrewmateonleftpanel").classList.add("amongUsBounce");
-        // remove after 0.5 seconds
-        setTimeout(function() {
-            document.getElementById("amonguscrewmateonleftpanel").classList.remove("amongUsBounce");
-        })
+        // console.log('sus')
+        // document.getElementById("amonguscrewmateonleftpanel").classList.add("amongUsBounce");
+        // // remove after 0.5 seconds
+        // setTimeout(function() {
+        //     document.getElementById("amonguscrewmateonleftpanel").classList.remove("amongUsBounce");
+        // })
     }
 }
