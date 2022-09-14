@@ -1,6 +1,7 @@
 var themes = {
     "amongus": new AmongUsTheme(),
-    "default": new LangTheme()
+    "default": new LangTheme(),
+    "nord": new NordTheme()
 };
 
 // if theme and light are not in localStorage, set them to default and false
@@ -25,6 +26,7 @@ function setTheme(themeName) {
 }
 
 function toggleLight() {
+    console.log("toggleLight");
     currentTheme.unloadTheme(isLight);
     isLight = !isLight;
     localStorage.setItem("light", isLight);

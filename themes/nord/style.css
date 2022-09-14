@@ -1,0 +1,21 @@
+:root {
+    --main-color-dark: #2E3440;
+    --main-color: #3B4252;
+    --main-color-light: #434C5E;
+    --accent-color: #D8DEE9;
+}
+
+#timerButtonPanel {
+    margin-top: 15px;
+}
+
+.panelButton {
+    border-radius: 25px;
+    width: calc((var(--fullWidthInPanel) / 3) - 20px);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#timerContainer {
+    border-radius: 25px;
+}
