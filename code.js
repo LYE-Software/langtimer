@@ -36,6 +36,7 @@ function timer(ck){
 }
 
 function findMode() {
+    document.getElementById("buttonClickAudio").play();
     disableButtons()
     document.getElementById("startButton").innerHTML = "Pause"
     document.getElementById("startButton").onclick = function(){makePause()};
@@ -51,6 +52,7 @@ function findMode() {
 }
 
 function makePause(){
+    document.getElementById("buttonClickAudio").play();
     clearInterval(timer1)
     document.getElementById("startButton").classList.remove("startButtonClicked");
     document.getElementById("startButton").innerHTML = "Resume";
@@ -61,6 +63,7 @@ function makePause(){
 }
 
 function makeResume(){
+    document.getElementById("buttonClickAudio").play();
     timer("Start")
     document.getElementById("startButton").classList.add("startButtonClicked");
     document.getElementById("startButton").innerHTML = "Pause";
