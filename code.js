@@ -15,11 +15,12 @@ function timer(ck){
                 if (sec <= 0) {
                     clearInterval(timer1);
                     clearInterval(timer)
-                    document.getElementById("timerContainer").innerHTML = secondsToMinutesFormatted(sec);
                     enableButtons()
                     isRunning = false;
                     document.getElementById("endAudio").play();
-                    console.log("played sound")
+                    document.getElementById("startButton").onclick = function(){
+                        findMode()
+                    }
                 }
             }, 1000)
         } else {
