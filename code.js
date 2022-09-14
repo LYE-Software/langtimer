@@ -120,6 +120,13 @@ function setClockTime(formattedTime) {
     document.getElementById('num0').innerHTML=formattedTime[4];
 }
 
-function createTask(){
-    
+function addTask() {
+    var element = document.createElement("div");
+    element.classList.add("horizontalFlex");
+    element.style.marginBottom = "10px";
+    var element2 = document.createElement("div");
+    element2.classList.add("verticalFlex");
+    element2.classList.add("newTask");
+    element.appendChild(element2);
+    document.getElementById("tasks").appendChild(element);
 }
