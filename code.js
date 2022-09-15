@@ -159,3 +159,13 @@ function addTask() {
     element.appendChild(element2);
     document.getElementById("tasks").insertBefore(element, document.getElementById("tasks").childNodes[0]);
 }
+
+var usingTelescope = false;
+function toggleTelescope() {
+    usingTelescope = !usingTelescope;
+    if (usingTelescope) {
+        document.body.setAttribute("style", "font-family: 'Annie Use Your Telescope' !important;");
+    } else {
+        document.body.removeAttribute("style", "");
+    }
+}

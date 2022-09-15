@@ -6,6 +6,8 @@
     <title>Lang Timer</title>
     <link rel="icon" href="assets/logo.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+        
         /* Thanks w3schools */
         /* The switch - the box around the slider */
         .switch {
@@ -321,6 +323,14 @@
                 <div class="horizontalFlex smallHeader" style="margin-left: 20px;">Light Mode</div>
                 <label class="switch" style="margin-right: 20px;">
                     <input type="checkbox" onclick="toggleLight()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="internalSettingsPanel horizontalFlex" style="justify-content: space-between;">
+                <div class="horizontalFlex smallHeader" style="margin-left: 20px;">Use "The Font"</div>
+                <label class="switch" style="margin-right: 20px;">
+                    <input type="checkbox" onclick="toggleTelescope()">
                     <span class="slider round"></span>
                 </label>
             </div>
