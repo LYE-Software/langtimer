@@ -120,13 +120,42 @@ function setClockTime(formattedTime) {
     document.getElementById('num0').innerHTML=formattedTime[4];
 }
 
+var taskCount = 0;
+
 function addTask() {
+    taskCount++;
+
     var element = document.createElement("div");
     element.classList.add("horizontalFlex");
     element.style.marginBottom = "10px";
+    element.id = "task" + taskCount;
+
     var element2 = document.createElement("div");
-    element2.classList.add("verticalFlex");
+    element2.classList.add("horizontalFlex");
     element2.classList.add("newTask");
+    element2.style.justifyContent = "space-between";
+
+    var element3 = document.createElement("div");
+    element3.setAttribute("contenteditable", "true");
+    element3.style.marginLeft = "10px";
+    element2.appendChild(element3);
+
+    var element4 = document.createElement("img");
+    element4.src = "assets/close.png";
+    element4.style.marginRight = "10px";
+    element4.style.cursor = "pointer";
+    element4.style.height = "30px";
+    element4.style.width = "30px";
+    element4.onclick = function() {
+        var parent = this.parentElement.parentElement;
+        parent.remove();
+    }
+    element2.appendChild(element4);
+
+
+    // element2.classList.add("verticalFlex");
+    // element2.classList.add("newTask");
+    // element2.setAttribute("contenteditable", "true");
     element.appendChild(element2);
-    document.getElementById("tasks").appendChild(element);
+    document.getElementById("tasks").insertBefore(element, document.getElementById("tasks").childNodes[0]);
 }
